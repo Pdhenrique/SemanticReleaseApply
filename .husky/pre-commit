@@ -2,3 +2,5 @@
 . "$(dirname -- "$0")/common.sh"
 
 npx --np-install lint-staged
+
+exit 1

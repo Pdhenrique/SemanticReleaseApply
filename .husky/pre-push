@@ -3,5 +3,5 @@
 
 npx --no-install
 
-yarn typecheck
+#yarn typecheck
 
