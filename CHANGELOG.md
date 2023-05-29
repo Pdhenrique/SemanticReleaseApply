@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Pdhenrique/SemanticReleaseApply/compare/v1.0.0...v1.1.0) (2023-05-29)
+
+
+### Features
+
+* updating src ([cccecc4](https://github.com/Pdhenrique/SemanticReleaseApply/commit/cccecc4a70db1e1dfe7c2990b65784fff7a1e9a2))
+
 # 1.0.0 (2023-05-29)
 
 
