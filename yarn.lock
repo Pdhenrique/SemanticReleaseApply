@@ -694,7 +694,7 @@
   dependencies:
     "@octokit/types" "^9.0.0"
 
-"@octokit/core@^4.2.1", "@octokit/core@>=3", "@octokit/core@>=4":
+"@octokit/core@^4.0.0", "@octokit/core@^4.2.1", "@octokit/core@>=3", "@octokit/core@>=4":
   "integrity" "sha512-tEDxFx8E38zF3gT7sSMDrT1tGumDgsw5yPG6BBh/X+5ClIQfMH/Yqocxz1PnHx6CHyF6pxmovUTOfZAUvQ0Lvw=="
   "resolved" "https://registry.npmjs.org/@octokit/core/-/core-4.2.1.tgz"
   "version" "4.2.1"
@@ -738,18 +738,21 @@
     "@octokit/tsconfig" "^1.0.2"
     "@octokit/types" "^9.2.3"
 
-"@octokit/plugin-request-log@^1.0.4":
-  "integrity" "sha512-mLUsMkgP7K/cnFEw07kWqXGF5LKrOkD+lhCrKvPHXWDywAwuDUeDwWBpc69XK3pNX0uKiVt8g5z96PJ6z9xCFA=="
-  "resolved" "https://registry.npmjs.org/@octokit/plugin-request-log/-/plugin-request-log-1.0.4.tgz"
-  "version" "1.0.4"
-
-"@octokit/plugin-rest-endpoint-methods@^7.1.2":
-  "integrity" "sha512-R0oJ7j6f/AdqPLtB9qRXLO+wjI9pctUn8Ka8UGfGaFCcCv3Otx14CshQ89K4E88pmyYZS8p0rNTiprML/81jig=="
-  "resolved" "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-7.1.2.tgz"
-  "version" "7.1.2"
+"@octokit/plugin-retry@^4.1.3":
+  "integrity" "sha512-3YKBj7d0J/4mpEc4xzMociWsMNl5lZqrpAnYcW6mqiSGF3wFjU+c6GHih6GLClk31JNvKDr0x9jc5cfm7evkZg=="
+  "resolved" "https://registry.npmjs.org/@octokit/plugin-retry/-/plugin-retry-4.1.3.tgz"
+  "version" "4.1.3"
   dependencies:
-    "@octokit/types" "^9.2.3"
-    "deprecation" "^2.3.1"
+    "@octokit/types" "^9.0.0"
+    "bottleneck" "^2.15.3"
+
+"@octokit/plugin-throttling@^5.2.3":
+  "integrity" "sha512-C9CFg9mrf6cugneKiaI841iG8DOv6P5XXkjmiNNut+swePxQ7RWEdAZRp5rJoE1hjsIqiYcKa/ZkOQ+ujPI39Q=="
+  "resolved" "https://registry.npmjs.org/@octokit/plugin-throttling/-/plugin-throttling-5.2.3.tgz"
+  "version" "5.2.3"
+  dependencies:
+    "@octokit/types" "^9.0.0"
+    "bottleneck" "^2.15.3"
 
 "@octokit/request-error@^3.0.0":
   "integrity" "sha512-crqw3V5Iy2uOU5Np+8M/YexTlT8zxCfI+qu+LxUB7SZpje4Qmx3mub5DfEKSO8Ylyk0aogi6TYdf6kxzh2BguQ=="
@@ -771,16 +774,6 @@
     "is-plain-object" "^5.0.0"
     "node-fetch" "^2.6.7"
     "universal-user-agent" "^6.0.0"
-
-"@octokit/rest@^19.0.0":
-  "integrity" "sha512-m2a9VhaP5/tUw8FwfnW2ICXlXpLPIqxtg3XcAiGMLj/Xhw3RSBfZ8le/466ktO1Gcjr8oXudGnHhxV1TXJgFxw=="
-  "resolved" "https://registry.npmjs.org/@octokit/rest/-/rest-19.0.11.tgz"
-  "version" "19.0.11"
-  dependencies:
-    "@octokit/core" "^4.2.1"
-    "@octokit/plugin-paginate-rest" "^6.1.2"
-    "@octokit/plugin-request-log" "^1.0.4"
-    "@octokit/plugin-rest-endpoint-methods" "^7.1.2"
 
 "@octokit/tsconfig@^1.0.2":
   "integrity" "sha512-I0vDR0rdtP8p2lGMzvsJzbhdOWy405HcGovrspJ8RRibHnyRgggUSNO5AIox5LmqiwmatHKYsvj6VGFHkqS7lA=="
@@ -857,26 +850,27 @@
     "micromatch" "^4.0.0"
     "p-reduce" "^2.0.0"
 
-"@semantic-release/github@^8.0.0":
-  "integrity" "sha512-VtgicRIKGvmTHwm//iqTh/5NGQwsncOMR5vQK9pMT92Aem7dv37JFKKRuulUsAnUOIlO4G8wH3gPiBAA0iW0ww=="
-  "resolved" "https://registry.npmjs.org/@semantic-release/github/-/github-8.0.7.tgz"
-  "version" "8.0.7"
+"@semantic-release/github@^8.0.0", "@semantic-release/github@^8.1.0":
+  "integrity" "sha512-erR9E5rpdsz0dW1I7785JtndQuMWN/iDcemcptf67tBNOmBUN0b2YNOgcjYUnBpgRpZ5ozfBHrK7Bz+2ets/Dg=="
+  "resolved" "https://registry.npmjs.org/@semantic-release/github/-/github-8.1.0.tgz"
+  "version" "8.1.0"
   dependencies:
-    "@octokit/rest" "^19.0.0"
+    "@octokit/core" "^4.2.1"
+    "@octokit/plugin-paginate-rest" "^6.1.2"
+    "@octokit/plugin-retry" "^4.1.3"
+    "@octokit/plugin-throttling" "^5.2.3"
     "@semantic-release/error" "^3.0.0"
     "aggregate-error" "^3.0.0"
-    "bottleneck" "^2.18.1"
     "debug" "^4.0.0"
     "dir-glob" "^3.0.0"
     "fs-extra" "^11.0.0"
     "globby" "^11.0.0"
-    "http-proxy-agent" "^5.0.0"
-    "https-proxy-agent" "^5.0.0"
+    "http-proxy-agent" "^7.0.0"
+    "https-proxy-agent" "^7.0.0"
     "issue-parser" "^6.0.0"
     "lodash" "^4.17.4"
     "mime" "^3.0.0"
     "p-filter" "^2.0.0"
-    "p-retry" "^4.0.0"
     "url-join" "^4.0.0"
 
 "@semantic-release/npm@^9.0.0":
@@ -984,11 +978,6 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     "csstype" "^3.0.2"
-
-"@types/retry@0.12.0":
-  "integrity" "sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA=="
-  "resolved" "https://registry.npmjs.org/@types/retry/-/retry-0.12.0.tgz"
-  "version" "0.12.0"
 
 "@types/scheduler@*":
   "integrity" "sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ=="
@@ -1120,6 +1109,13 @@
   "version" "6.0.2"
   dependencies:
     "debug" "4"
+
+"agent-base@^7.0.2", "agent-base@^7.1.0":
+  "integrity" "sha512-o/zjMZRhJxny7OyEF+Op8X+efiELC7k7yOjMzgfzVqOzXqkBkWI79YoTdOtsuWd5BWhAGAuOY/Xa6xpiaWXiNg=="
+  "resolved" "https://registry.npmjs.org/agent-base/-/agent-base-7.1.0.tgz"
+  "version" "7.1.0"
+  dependencies:
+    "debug" "^4.3.4"
 
 "agentkeepalive@^4.2.1":
   "version" "4.2.1"
@@ -1296,7 +1292,7 @@
   "resolved" "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
   "version" "2.2.0"
 
-"bottleneck@^2.18.1":
+"bottleneck@^2.15.3":
   "integrity" "sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw=="
   "resolved" "https://registry.npmjs.org/bottleneck/-/bottleneck-2.19.5.tgz"
   "version" "2.19.5"
@@ -1784,7 +1780,7 @@
 "depd@^1.1.2":
   "version" "1.1.2"
 
-"deprecation@^2.0.0", "deprecation@^2.3.1":
+"deprecation@^2.0.0":
   "integrity" "sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ=="
   "resolved" "https://registry.npmjs.org/deprecation/-/deprecation-2.3.1.tgz"
   "version" "2.3.1"
@@ -2459,12 +2455,28 @@
     "agent-base" "6"
     "debug" "4"
 
+"http-proxy-agent@^7.0.0":
+  "integrity" "sha512-+ZT+iBxVUQ1asugqnD6oWoRiS25AkjNfG085dKJGtGxkdwLQrMKU5wJr2bOOFAXzKcTuqq+7fZlTMgG3SRfIYQ=="
+  "resolved" "https://registry.npmjs.org/http-proxy-agent/-/http-proxy-agent-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "agent-base" "^7.1.0"
+    "debug" "^4.3.4"
+
 "https-proxy-agent@^5.0.0":
   "integrity" "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA=="
   "resolved" "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz"
   "version" "5.0.1"
   dependencies:
     "agent-base" "6"
+    "debug" "4"
+
+"https-proxy-agent@^7.0.0":
+  "integrity" "sha512-0euwPCRyAPSgGdzD1IVN9nJYHtBhJwb6XPfbpQcYbPCwrBidX6GzxmchnaF4sfF/jPb74Ojx5g4yTg3sixlyPw=="
+  "resolved" "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-7.0.0.tgz"
+  "version" "7.0.0"
+  dependencies:
+    "agent-base" "^7.0.2"
     "debug" "4"
 
 "human-signals@^2.1.0":
@@ -3771,14 +3783,6 @@
   "resolved" "https://registry.npmjs.org/p-reduce/-/p-reduce-2.1.0.tgz"
   "version" "2.1.0"
 
-"p-retry@^4.0.0":
-  "integrity" "sha512-312Id396EbJdvRONlngUx0NydfrIQ5lsYu0znKVUzVvArzEIt08V1qhtyESbGVd1FGX7UKtiFp5uwKZdM8wIuQ=="
-  "resolved" "https://registry.npmjs.org/p-retry/-/p-retry-4.6.2.tgz"
-  "version" "4.6.2"
-  dependencies:
-    "@types/retry" "0.12.0"
-    "retry" "^0.13.1"
-
 "p-try@^1.0.0":
   "integrity" "sha512-U1etNYuMJoIz3ZXSrrySFjsXQTWOx2/jdi86L+2pRvph/qMKL6sbcCYdH23fqsbm8TH2Gn0OybpT4eSFlCVHww=="
   "resolved" "https://registry.npmjs.org/p-try/-/p-try-1.0.0.tgz"
@@ -4201,11 +4205,6 @@
   "integrity" "sha512-9LkiTwjUh6rT555DtE9rTX+BKByPfrMzEAtnlEtdEwr3Nkffwiihqe2bWADg+OQRjt9gl6ICdmB/ZFDCGAtSow=="
   "resolved" "https://registry.npmjs.org/retry/-/retry-0.12.0.tgz"
   "version" "0.12.0"
-
-"retry@^0.13.1":
-  "integrity" "sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg=="
-  "resolved" "https://registry.npmjs.org/retry/-/retry-0.13.1.tgz"
-  "version" "0.13.1"
 
 "reusify@^1.0.4":
   "integrity" "sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw=="
