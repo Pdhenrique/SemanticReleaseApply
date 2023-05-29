@@ -8,21 +8,13 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky install"
-  },
-  "husky":{
-    "hooks":{
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged":{
-    "src/**/*.{ts,tsx}": [ 
-      "yarn lint"
-    ]
+    "prepare": "husky install",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "typecheck": "^0.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
